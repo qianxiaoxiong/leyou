@@ -1,0 +1,13 @@
+ly:
+  pay:
+    appID: wx844e486be7e42720
+    mchID: 1601029406
+    key: tad2qlb1314tad2qlb1314tad2qlb131
+    httpconnecttimeoutms: 5000
+    httpReadTimeoutMs: 10000
+    createIP: 127.0.0.1
+    notifyUrl: http://qrdmj9.natappfree.cc/test #http://api.leyou.com/api/wxpay/notify
+    tradeType: JSAPI
+
+server:
+  port: 8089

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.itcast.mapper.SkuMapper">
+  <resultMap id="BaseResultMap" type="com.leyou.pojo.Sku">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="spu_id" jdbcType="BIGINT" property="spuId" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="images" jdbcType="VARCHAR" property="images" />
+    <result column="price" jdbcType="BIGINT" property="price" />
+    <result column="indexes" jdbcType="VARCHAR" property="indexes" />
+    <result column="own_spec" jdbcType="VARCHAR" property="ownSpec" />
+    <result column="enable" jdbcType="BOOLEAN" property="enable" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, spu_id, title, images, price, indexes, own_spec, `enable`, create_time, last_update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_sku
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from tb_sku
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.leyou.pojo.Sku" useGeneratedKeys="true">
+    insert into tb_sku (spu_id,title, images,
+      price, indexes, own_spec, 
+      `enable`, create_time, last_update_time
+      )
+    values (#{spuId,jdbcType=BIGINT} ,#{title,jdbcType=VARCHAR}, #{images,jdbcType=VARCHAR},
+      #{price,jdbcType=BIGINT}, #{indexes,jdbcType=VARCHAR}, #{ownSpec,jdbcType=VARCHAR}, 
+      #{enable,jdbcType=BOOLEAN}, #{createTime,jdbcType=TIMESTAMP}, #{lastUpdateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.leyou.pojo.Sku" useGeneratedKeys="true">
+    insert into tb_sku
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="spuId != null">
+        spu_id,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="images != null">
+        images,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="indexes != null">
+        indexes,
+      </if>
+      <if test="ownSpec != null">
+        own_spec,
+      </if>
+      <if test="enable != null">
+        `enable`,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="lastUpdateTime != null">
+        last_update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="spuId != null">
+        #{spuId,jdbcType=BIGINT},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="images != null">
+        #{images,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=BIGINT},
+      </if>
+      <if test="indexes != null">
+        #{indexes,jdbcType=VARCHAR},
+      </if>
+      <if test="ownSpec != null">
+        #{ownSpec,jdbcType=VARCHAR},
+      </if>
+      <if test="enable != null">
+        #{enable,jdbcType=BOOLEAN},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.leyou.pojo.Sku">
+    update tb_sku
+    <set>
+      <if test="spuId != null">
+        spu_id = #{spuId,jdbcType=BIGINT},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="images != null">
+        images = #{images,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=BIGINT},
+      </if>
+      <if test="indexes != null">
+        indexes = #{indexes,jdbcType=VARCHAR},
+      </if>
+      <if test="ownSpec != null">
+        own_spec = #{ownSpec,jdbcType=VARCHAR},
+      </if>
+      <if test="enable != null">
+        `enable` = #{enable,jdbcType=BOOLEAN},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateTime != null">
+        last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.leyou.pojo.Sku">
+    update tb_sku
+    set spu_id = #{spuId,jdbcType=BIGINT},
+      title = #{title,jdbcType=VARCHAR},
+      images = #{images,jdbcType=VARCHAR},
+      price = #{price,jdbcType=BIGINT},
+      indexes = #{indexes,jdbcType=VARCHAR},
+      own_spec = #{ownSpec,jdbcType=VARCHAR},
+      `enable` = #{enable,jdbcType=BOOLEAN},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  
+  <select id="select" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tb_sku
+    where spu_id = #{spuid}
+  </select>
+
+
+  <resultMap id="CusResultMap" type="com.leyou.pojo.Sku" autoMapping="true" >
+    <!-- 返回是一个list的Category的  集合     Category里面没有Object 或者List集合，所以不用 association collection -->
+    <id property="id" column="id"/>
+
+  </resultMap>
+  <!-- 注意一个返回结果用ResultType="User",   list返回结果用ReusltMap=“list" -->
+  <select id="selectByIdList" parameterType="java.util.List"  resultMap="CusResultMap" >
+    select * from tb_sku where id in
+    <!--这个ids 对应CategoryMapper接口的参数 ids -->
+    <foreach collection="list" item="id" index="index" open="(" close=")" separator=",">
+      #{id}
+    </foreach>
+  </select>
+
+
+</mapper>

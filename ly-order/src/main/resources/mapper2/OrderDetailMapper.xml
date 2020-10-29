@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.leyou.mapper2.OrderDetailMapper">
+  <resultMap id="BaseResultMap" type="com.leyou.pojo2.OrderDetail">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="order_id" jdbcType="BIGINT" property="orderId" />
+    <result column="sku_id" jdbcType="BIGINT" property="skuId" />
+    <result column="num" jdbcType="INTEGER" property="num" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="own_spec" jdbcType="VARCHAR" property="ownSpec" />
+    <result column="price" jdbcType="BIGINT" property="price" />
+    <result column="image" jdbcType="VARCHAR" property="image" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, order_id, sku_id, num, title, own_spec, price, image
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_order_detail
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from tb_order_detail
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.leyou.pojo2.OrderDetail" useGeneratedKeys="true">
+    insert into tb_order_detail (order_id, sku_id, num, 
+      title, own_spec, price, 
+      image)
+    values (#{orderId,jdbcType=BIGINT}, #{skuId,jdbcType=BIGINT}, #{num,jdbcType=INTEGER}, 
+      #{title,jdbcType=VARCHAR}, #{ownSpec,jdbcType=VARCHAR}, #{price,jdbcType=BIGINT}, 
+      #{image,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.leyou.pojo2.OrderDetail" useGeneratedKeys="true">
+    insert into tb_order_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="skuId != null">
+        sku_id,
+      </if>
+      <if test="num != null">
+        num,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="ownSpec != null">
+        own_spec,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="image != null">
+        image,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        #{orderId,jdbcType=BIGINT},
+      </if>
+      <if test="skuId != null">
+        #{skuId,jdbcType=BIGINT},
+      </if>
+      <if test="num != null">
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="ownSpec != null">
+        #{ownSpec,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=BIGINT},
+      </if>
+      <if test="image != null">
+        #{image,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.leyou.pojo2.OrderDetail">
+    update tb_order_detail
+    <set>
+      <if test="orderId != null">
+        order_id = #{orderId,jdbcType=BIGINT},
+      </if>
+      <if test="skuId != null">
+        sku_id = #{skuId,jdbcType=BIGINT},
+      </if>
+      <if test="num != null">
+        num = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="ownSpec != null">
+        own_spec = #{ownSpec,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=BIGINT},
+      </if>
+      <if test="image != null">
+        image = #{image,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.leyou.pojo2.OrderDetail">
+    update tb_order_detail
+    set order_id = #{orderId,jdbcType=BIGINT},
+      sku_id = #{skuId,jdbcType=BIGINT},
+      num = #{num,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      own_spec = #{ownSpec,jdbcType=VARCHAR},
+      price = #{price,jdbcType=BIGINT},
+      image = #{image,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <!--   //useGenerateKey  是jdbc通过getUserGeneatedKeys方法获取主键并且赋值keyPeroperty="id"中去-->
+  <insert id="insertList" keyColumn="id" keyProperty="id" parameterType="java.util.List" useGeneratedKeys="true">
+    insert into tb_order_detail   (order_id, sku_id, num,
+    title, own_spec, price,
+    image)
+    values
+    <foreach collection="list" item="item" index="index"  separator=",">
+      (#{item.orderId,jdbcType=BIGINT}, #{item.skuId,jdbcType=BIGINT}, #{item.num,jdbcType=INTEGER},
+      #{item.title,jdbcType=VARCHAR}, #{item.ownSpec,jdbcType=VARCHAR}, #{item.price,jdbcType=BIGINT},
+      #{item.image,jdbcType=VARCHAR})
+    </foreach>
+  </insert>
+
+
+
+  <select id="select" parameterType="com.leyou.pojo2.OrderDetail" resultType="com.leyou.pojo2.OrderDetail">
+    select
+    <include refid="Base_Column_List" />
+    from tb_order_detail
+    where
+    <if test="detail.id != null"> tb_order_detail.id =  #{detail.id} </if>
+    <if test="detail.orderId != null">tb_order_detail.order_id =  #{detail.orderId} </if>
+    <if test="detail.skuId != null"> tb_order_detail.sku_id =   #{detail.skuId} </if>
+    <if test="detail.num != null">  tb_order_detail.num =  #{detail.num } </if>
+    <if test="detail.title != null"> tb_order_detail.title =  #{detail.title} </if>
+    <if test="detail.ownSpec != null"> tb_order_detail.own_spec =  #{detail.ownSpec} </if>
+    <if test="detail.price != null">  tb_order_detail.price =  #{detail.price} </if>
+    <if test="detail.image != null">  tb_order_detail.image =  #{detail.image} </if>
+
+  </select>
+</mapper>

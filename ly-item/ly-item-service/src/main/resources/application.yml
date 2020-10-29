@@ -1,0 +1,31 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: item-service
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/yun8
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+    hostname: 127.0.0.1
+
+mybatis:
+  mapper-locations:  classpath:/mapper/**
+  type-aliases-package: com.leyou.pojo
+  config-location: classpath:mybatis-config.xml
+
+logging:
+  level:
+      cn.itcast: debug
+
+
+

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PersistentConfig">
+    <option name="historyConfigList">
+      <map>
+        <entry key="tb_brand">
+          <value>
+            <Config>
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="BrandMapper" />
+              <option name="daoPackage" value="cn.itcast.mapper" />
+              <option name="daoPostfix" value="Mapper" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="Brand" />
+              <option name="modelPackage" value="cn.itcast.pojo" />
+              <option name="name" value="tb_brand" />
+              <option name="offsetLimit" value="true" />
+              <option name="overrideXML" value="true" />
+              <option name="primaryKey" value="id" />
+              <option name="projectFolder" value="$PROJECT_DIR$/ly-item/ly-item-service" />
+              <option name="tableName" value="tb_brand" />
+              <option name="useLombokPlugin" value="true" />
+              <option name="xmlMvnPath" value="src/main/resources" />
+              <option name="xmlPackage" value="Mapper" />
+            </Config>
+          </value>
+        </entry>
+        <entry key="tb_category">
+          <value>
+            <Config>
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="CategoryMapper" />
+              <option name="daoPackage" value="cn.itcast.mapper" />
+              <option name="daoPostfix" value="Mapper" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="Category" />
+              <option name="modelPackage" value="cn.itcast.pojo" />
+              <option name="name" value="tb_category" />
+              <option name="primaryKey" value="id" />
+              <option name="projectFolder" value="$PROJECT_DIR$/ly-item/ly-item-service" />
+              <option name="tableName" value="tb_category" />
+              <option name="useLombokPlugin" value="true" />
+              <option name="xmlMvnPath" value="src/main/resources" />
+              <option name="xmlPackage" value="mapper" />
+            </Config>
+          </value>
+        </entry>
+        <entry key="tb_order">
+          <value>
+            <Config>
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="OrderMapper" />
+              <option name="daoPackage" value="com.leyou.mapper2" />
+              <option name="daoPostfix" value="Mapper" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="Order" />
+              <option name="modelPackage" value="com.leyou.pojo2" />
+              <option name="name" value="tb_order" />
+              <option name="primaryKey" value="order_id" />
+              <option name="projectFolder" value="$PROJECT_DIR$/ly-order" />
+              <option name="tableName" value="tb_order" />
+              <option name="xmlMvnPath" value="src/main/resources" />
+              <option name="xmlPackage" value="mapper2" />
+            </Config>
+          </value>
+        </entry>
+        <entry key="tb_order_detail">
+          <value>
+            <Config>
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="OrderDetailMapper" />
+              <option name="daoPackage" value="com.leyou.mapper2" />
+              <option name="daoPostfix" value="Mapper" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="OrderDetail" />
+              <option name="modelPackage" value="com.leyou.pojo2" />
+              <option name="name" value="tb_order_detail" />
+              <option name="primaryKey" value="id" />
+              <option name="projectFolder" value="$PROJECT_DIR$/ly-order" />
+              <option name="tableName" value="tb_order_detail" />
+              <option name="xmlMvnPath" value="src/main/resources" />
+              <option name="xmlPackage" value="mapper2" />
+            </Config>
+          </value>
+        </entry>
+        <entry key="tb_order_status">
+          <value>
+            <Config>
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="OrderStatusMapper" />
+              <option name="daoPackage" value="com.leyou.mapper2" />
+              <option name="daoPostfix" value="Mapper" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="OrderStatus" />
+              <option name="modelPackage" value="com.leyou.pojo2" />
+              <option name="name" value="tb_order_status" />
+              <option name="primaryKey" value="order_id" />
+              <option name="projectFolder" value="$PROJECT_DIR$/ly-order" />
+              <option name="tableName" value="tb_order_status" />
+              <option name="xmlMvnPath" value="src/main/resources" />
+              <option name="xmlPackage" value="mapper2" />
+            </Config>
+          </value>
+        </entry>
+        <entry key="tb_sku">
+          <value>
+            <Config>
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="SkuMapper" />
+              <option name="daoPackage" value="cn.itcast.mapper" />
+              <option name="daoPostfix" value="Mapper" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="Sku" />
+              <option name="modelPackage" value="cn.itcast.pojo" />
+              <option name="name" value="tb_sku" />
+              <option name="primaryKey" value="id" />
+              <option name="projectFolder" value="$PROJECT_DIR$/ly-item/ly-item-service" />
+              <option name="tableName" value="tb_sku" />
+              <option name="xmlMvnPath" value="src/main/resources" />
+              <option name="xmlPackage" value="mapper" />
+            </Config>
+          </value>
+        </entry>
+        <entry key="tb_spec_param">
+          <value>
+            <Config>
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="SpecParamMapper" />
+              <option name="daoPackage" value="cn.itcast.mapper" />
+              <option name="daoPostfix" value="Mapper" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="SpecParam" />
+              <option name="modelPackage" value="cn.itcast.pojo" />
+              <option name="name" value="tb_spec_param" />
+              <option name="primaryKey" value="id" />
+              <option name="projectFolder" value="$PROJECT_DIR$/ly-item/ly-item-service" />
+              <option name="tableName" value="tb_spec_param" />
+              <option name="xmlMvnPath" value="" />
+              <option name="xmlPackage" value="" />
+            </Config>
+          </value>
+        </entry>
+        <entry key="tb_spu_detail">
+          <value>
+            <Config>
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="SpuDetailMapper" />
+              <option name="daoPackage" value="cn.itcast.mapper" />
+              <option name="daoPostfix" value="Mapper" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="SpuDetail" />
+              <option name="modelPackage" value="cn.itcast.pojo" />
+              <option name="name" value="tb_spu_detail" />
+              <option name="primaryKey" value="spu_id" />
+              <option name="projectFolder" value="$PROJECT_DIR$/ly-item/ly-item-service" />
+              <option name="tableName" value="tb_spu_detail" />
+              <option name="xmlMvnPath" value="src/main/resources" />
+              <option name="xmlPackage" value="mapper" />
+            </Config>
+          </value>
+        </entry>
+        <entry key="tb_stock">
+          <value>
+            <Config>
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="StockMapper" />
+              <option name="daoPackage" value="cn.itcast.mapper" />
+              <option name="daoPostfix" value="Mapper" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="Stock" />
+              <option name="modelPackage" value="cn.itcast.mapper" />
+              <option name="name" value="tb_stock" />
+              <option name="primaryKey" value="sku_id" />
+              <option name="projectFolder" value="$PROJECT_DIR$/ly-item/ly-item-service" />
+              <option name="tableName" value="tb_stock" />
+              <option name="xmlMvnPath" value="src/main/resources" />
+              <option name="xmlPackage" value="mapper" />
+            </Config>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

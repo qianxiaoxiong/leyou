@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.itcast.mapper.SpuDetailMapper">
+  <resultMap id="BaseResultMap" type="com.leyou.pojo.SpuDetail">
+    <id column="spu_id" jdbcType="BIGINT" property="spuId" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="generic_spec" jdbcType="VARCHAR" property="genericSpec" />
+    <result column="special_spec" jdbcType="VARCHAR" property="specialSpec" />
+    <result column="packing_list" jdbcType="VARCHAR" property="packingList" />
+    <result column="after_service" jdbcType="VARCHAR" property="afterService" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    spu_id, description, generic_spec, special_spec, packing_list, after_service
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_spu_detail
+    where spu_id = #{spuId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from tb_spu_detail
+    where spu_id = #{spuId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="spu_id" keyProperty="spuId" parameterType="com.leyou.pojo.SpuDetail" useGeneratedKeys="true">
+    insert into tb_spu_detail (spu_id,description, generic_spec, special_spec,
+      packing_list, after_service)
+    values ( #{spuId,jdbcType=BIGINT},#{description,jdbcType=VARCHAR}, #{genericSpec,jdbcType=VARCHAR}, #{specialSpec,jdbcType=VARCHAR},
+      #{packingList,jdbcType=VARCHAR}, #{afterService,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="spu_id" keyProperty="spuId" parameterType="com.leyou.pojo.SpuDetail" useGeneratedKeys="true">
+    insert into tb_spu_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="description != null">
+        description,
+      </if>
+      <if test="genericSpec != null">
+        generic_spec,
+      </if>
+      <if test="specialSpec != null">
+        special_spec,
+      </if>
+      <if test="packingList != null">
+        packing_list,
+      </if>
+      <if test="afterService != null">
+        after_service,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="genericSpec != null">
+        #{genericSpec,jdbcType=VARCHAR},
+      </if>
+      <if test="specialSpec != null">
+        #{specialSpec,jdbcType=VARCHAR},
+      </if>
+      <if test="packingList != null">
+        #{packingList,jdbcType=VARCHAR},
+      </if>
+      <if test="afterService != null">
+        #{afterService,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.leyou.pojo.SpuDetail">
+    update tb_spu_detail
+    <set>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="genericSpec != null">
+        generic_spec = #{genericSpec,jdbcType=VARCHAR},
+      </if>
+      <if test="specialSpec != null">
+        special_spec = #{specialSpec,jdbcType=VARCHAR},
+      </if>
+      <if test="packingList != null">
+        packing_list = #{packingList,jdbcType=VARCHAR},
+      </if>
+      <if test="afterService != null">
+        after_service = #{afterService,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where spu_id = #{spuId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.leyou.pojo.SpuDetail">
+    update tb_spu_detail
+    set description = #{description,jdbcType=VARCHAR},
+      generic_spec = #{genericSpec,jdbcType=VARCHAR},
+      special_spec = #{specialSpec,jdbcType=VARCHAR},
+      packing_list = #{packingList,jdbcType=VARCHAR},
+      after_service = #{afterService,jdbcType=VARCHAR}
+    where spu_id = #{spuId,jdbcType=BIGINT}
+  </update>
+</mapper>

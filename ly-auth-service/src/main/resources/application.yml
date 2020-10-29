@@ -1,0 +1,25 @@
+server:
+  port: 8087
+spring:
+  application:
+    name: auth-service
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/yun8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+    hostname: 127.0.0.1
+
+ly:
+  jwt:
+    pubKeyPath: D://key/publickey.rsa # 公钥地址
+    priKeyPath: D://key/privatekey.rsa # 私钥地址
+    expire: 30 # 过期时间,单位分钟
+    cookieName: LY_TOKEN

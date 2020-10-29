@@ -1,0 +1,53 @@
+server:
+  port: 10010
+spring:
+  application:
+    name: api-gateway
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+    hostname: 127.0.0.1
+
+zuul:
+  prefix: /api # 添加路由前缀
+  retryable: true
+  routes:
+    item-service: /item/**
+    upload-service: /upload/**
+    user-service: /user/** #登录校验接口
+    auth-service: /auth/**
+    search-service: /search/**
+    cart-service: /cart/**
+    order-service: /order-service/**
+  add-host-header: true  #nignx 转发后  zuul还要转发
+  sensitive-headers: #zuul会自动过滤敏感的头，设置为null或者不写，否者set-cookie无效
+hystrix:
+    command:
+        default:
+          execution:
+             isolation:
+                thread:
+                  timeoutInMilliseconds: 5000   #超时熔断时长
+ribbon:
+  ConnectTimeout: 1000 # ribbon链接超时时长
+  ReadTimeout: 3500 # ribbon读取超时时长
+  MaxAutoRetries: 0  # 当前服务重试次数
+  MaxAutoRetriesNextServer: 0 # 切换服务重试次数
+
+
+ly:
+  jwt:
+    pubKeyPath: D://key/publickey.rsa
+    cookieName: LY_TOKEN
+  #设置白名单 不拦截
+  filter:
+    allowPaths:
+      - /api/auth
+      - /api/search
+      - /api/user/register
+      - /api/user/check   #校验是username或者phone在数据库中是否有
+      - /api/item

@@ -1,0 +1,38 @@
+server:
+  port: 8089
+spring:
+  application:
+    name: order-service
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/yun8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  jackson:
+    default-property-inclusion: non_null
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+mybatis:
+  type-aliases-package: com.leyou.order.pojo
+  mapper-locations:  classpath:/mapper2/**
+ly:
+  jwt:
+    pubKeyPath: D:/key/publickey.rsa # 公钥地址
+    cookieName: LY_TOKEN # cookie的名称
+wx:
+  appID: wx844e486be7e42720
+  mchID: 1601029406
+  key: tad2qlb1314tad2qlb1314tad2qlb131
+  httpconnecttimeoutms: 1000
+  httpReadTimeoutMs: 800
+  createIP: 127.0.0.1
+  notifyUrl:   http://qrdmj9.natappfree.cc/test #http://api.leyou.com/api/wxpay/notify
+  tradeType: NATIVE
+logging:
+  level:
+    com.leyou: debug
+
+
+
